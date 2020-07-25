@@ -1,0 +1,9 @@
+**Project,,,
+Project ID,Project Name,Project Description,
+110,Pheonix Equinox,A project in bengaluru,
+**Facility,,,
+Facility ID,Facility Name,Facility Description,Project ID
+120,Tower ,Main Tower,110
+**Zone,,,
+Facility ID,Zone ID,Zone Name,Zone Description
+120,111,B,Zone B

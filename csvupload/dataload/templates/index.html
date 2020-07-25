@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UPLOAD CSV FILE</title>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<style type="text/css">
+		.upload_csv {
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+
+		#btn {
+			padding: 10px 50px;
+			font-size: 12px;
+			border-radius: 10px;
+		}
+
+		.upload_details {
+			margin: 10px;
+			padding: 10px;
+		}
+
+		.upload_details {
+			margin: 10px;
+			padding: 10px;
+		}
+
+		.id-data {
+			padding: 10px 10px;
+			width: 100px;
+			border-radius: 10px;
+		}
+
+		.details {
+			padding: 10px 20px;
+			border-radius: 10px;
+		}
+
+		.desc-details {
+			padding: 10px 20px;
+			width: 200px;
+			border-radius: 10px;
+		}
+
+		.upload_details input {
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Upload CSV FILE</h1>
+	<form action="" method="POST" enctype="multipart/form-data" class="upload_csv">
+        {% csrf_token %}
+        <label for="file1"> Upload a CSV file</label>
+        <input type="file" name="file">
+        <button type="submit" id="btn">Upload</button>
+    </form>
+
+    <hr>
+    {% if messages %}
+   		<p class="success">
+    		Your message was submitted successfully. Thank you.
+   		</p>
+   	{% endif %}
+
+    <div>
+    	<div>
+	    	<h2>Project Details</h2>
+		    <form class="upload_details">
+		    	<label for="pid">Project ID:     </label>
+	  			<input class="id-data" type="text" name="pid" value={{ proj_id }} disabled>
+		  		<label for="pname">Project Name:     </label>
+	  			<input class="details" type="text" name="pname" value='{{ proj_name }}' disabled>
+	  			<label for="pdesc">Project Description:</label>
+	  			<input class="desc-details" type="text" name="pdesc" value='{{ proj_desc }}' disabled>
+			</form>
+		</div>
+
+		<div>
+			<h2>Facility Details</h2>
+			<form class="upload_details">
+		    	<label for="fid">Facility ID:     </label>
+	  			<input class="id-data" class="id_data" type="text" name="fid" value={{ facility_id }} disabled>
+		  		<label for="fname">Facility Name:     </label>
+	  			<input class="details" type="text" name="fname" value='{{ facility_name }}' disabled>
+	  			<label for="fdesc">Facility Description:</label>
+	  			<input class="desc-details" type="text" name="fdesc" value='{{ facility_desc }}' disabled>
+	  			<label for="fzid">Project Id:</label>
+	  			<input class="id-data" type="text" name="pfid" value={{ project_facility_id }} disabled>
+			</form>
+		</div>
+
+		<div>
+			<h2>Zone Details</h2>
+			<form class="upload_details">
+		    	<label for="zid">Zone ID:     </label>
+	  			<input class="id-data" type="text" name="zid" value='{{ zone_id }}' disabled>
+		  		<label for="zname">Zone Name:     </label>
+	  			<input class="details" type="text" name="zname" value='{{ zone_name }}' disabled>
+	  			<label for="zdesc">Zone Description:</label>
+	  			<input class="desc-details" type="text" name="zdesc" value='{{ zone_desc }}' disabled>
+	  			<label for="fzid">Facility Id:</label>
+	  			<input class="id-data" type="text" name="fzid" value={{ zone_facility_id }} disabled>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
